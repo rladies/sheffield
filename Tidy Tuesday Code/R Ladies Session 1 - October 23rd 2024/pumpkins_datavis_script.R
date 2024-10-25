@@ -40,16 +40,20 @@ pumpkin_palette <- c("#F75F1C", "#000000", "#881EE4", "#85E21F",
 #line graph max pumpkin weight over the years
 ggplot(pumpkin_summaries) +
   geom_line(aes(x = year, y = max_weight, colour = type_fct)) + 
-  scale_colour_manual(name = "Pumpkin type", values = pumpkin_palette) +
-  scale_x_continuous(name = "Year", breaks = seq(2013, 2021, by = 2))
+  scale_colour_manual(name = "Pumpkin Type", values = pumpkin_palette) +
+  scale_x_continuous(name = "Year", breaks = seq(2013, 2021, by = 2)) +
+  ylab("Maximum Weight")+
+  theme_minimal()
 
 #ribbon plot, median pumpkin weight over the years with shading for range
 ggplot(pumpkin_summaries) +
   geom_line(aes(x = year, y = median_weight, colour = type_fct)) +
   geom_ribbon(aes(x=year, ymin=lq_weight, ymax = uq_weight, fill=type_fct), alpha=0.3) +
-  scale_colour_manual(name = "Pumpkin type", values = pumpkin_palette) +
-  scale_fill_manual(name = "Pumpkin type", values = pumpkin_palette) +
-  scale_x_continuous(name = "Year", breaks = seq(2013, 2021, by = 2))
+  scale_colour_manual(name = "Pumpkin Type", values = pumpkin_palette) +
+  scale_fill_manual(name = "Pumpkin Type", values = pumpkin_palette) +
+  scale_x_continuous(name = "Year", breaks = seq(2013, 2021, by = 2)) +
+  ylab("Median Weight")+
+  theme_minimal()
 
 
 
